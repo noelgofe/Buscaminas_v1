@@ -34,9 +34,7 @@ int Tablero::num_columnas() {
 }
 
 bool Tablero::es_valida(int fila, int columna) {
-	bool valida = false;
-	if (fila >= 0 and fila <= MAX_FILS and columna >= 0 and columna <= MAX_COLS) valida = true;
-	return valida;
+	return (fila >= 0 and fila <= MAX_FILS and columna >= 0 and columna <= MAX_COLS);
 }
 
 Celda Tablero::dame_celda(int fila, int columna) {

@@ -114,10 +114,7 @@ bool Juego::esta_vacia(int fila, int columna) {
 }
 
 bool Juego::contiene_numero(int fila, int columna) {
-	bool contieneNum = false;
-	Celda celdaTemp = tablero.dame_celda(fila, columna);
-	if (celdaTemp.contiene_numero()) contieneNum = true;
-	return contieneNum; //tablero.dame_celda(fila, columna).contiene_numero()
+	return tablero.dame_celda(fila, columna).contiene_numero();
 }
 
 int Juego::dame_numero(int fila, int columna) {
@@ -128,21 +125,21 @@ int Juego::dame_numero(int fila, int columna) {
 void Juego::poner_mina(int fila, int columna) {
 	if (tablero.es_valida(fila, columna)) {
 		Celda celdaTemp = tablero.dame_celda(fila, columna); //referencia de la que se pone mina
-		if (!celdaTemp.contiene_mina()) { // TODO: !celdaTemp.esta_descubierta()
+		if (!celdaTemp.contiene_mina()) { // añadir !celdaTemp.esta_descubierta()
 			celdaTemp.poner_mina();
-			//for (int i = -1; i <= 1; ++i) {
-			//	for (int j = -1; j <= 1; ++j) {
-			//		int nuevaFila = fila + i;
-			//		int nuevaColumna = columna + j;
-			//		if (tablero.es_valida(nuevaFila, nuevaColumna) and !(i == 0 and j == 0)) {
-			//			//Sumar +1 a las vecinas
-			//			Celda celdaVecina = tablero.dame_celda(nuevaFila, nuevaColumna); //Sacamos celda del tablero
-			//			int num = celdaVecina.dame_numero();
-			//			celdaVecina.poner_numero(num++);
-			//			tablero.poner_celda(nuevaFila, nuevaColumna, celdaVecina); //guardamos la celda en el tablero
-			//		}
-			//	}
-			//}
+			tablero.poner_celda(fila, columna, celdaTemp);
+			
+			//Es el unico caso en el que se pone numero
+			for (int i = -1; i <= 1; ++i) {
+				for (int j = -1; j <= 1; ++j) {
+					if (tablero.es_valida(fila + i, columna + j) and !(i == 0 and j == 0)) {
+						//Sumar +1 a las vecinas
+						Celda celdaVecina = tablero.dame_celda(fila + i, columna + j); //Sacamos celda del tablero
+						celdaVecina.poner_numero(celdaVecina.dame_numero() + 1);
+						tablero.poner_celda(fila + i, columna + j, celdaVecina); //guardamos la celda en el tablero
+					}
+				}
+			}
 		}
 	}
 }

@@ -1,12 +1,10 @@
-#include "inputOutput.h"
+#include "InputOutput.h"
 #include <iomanip>
 #include <iostream>
 
 using namespace std;
 
-
 const char CHAR_MINA = '*';  // Mina
-
 
 void mostrar_separador(Juego& juego);
 void mostrar_celda(Juego& juego, int fila, int columna);

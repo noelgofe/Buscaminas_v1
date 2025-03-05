@@ -23,21 +23,15 @@ bool Celda::esta_descubierta() {
 }
 
 bool Celda::contiene_mina() {
-	bool mina = false;
-	if (estado == MINA) mina = true;
-	return mina;
+	return (estado == MINA);
 }
 
 bool Celda::contiene_numero() {
-	bool diferentede0 = false;
-	if (numero == NUMERO) diferentede0 = true;
-	return diferentede0;
+	return (numero == NUMERO);
 }
 
 bool Celda::esta_vacia() {
-	bool vacia = false;
-	if (estado == VACIA) vacia = true;
-	return vacia;
+	return (estado == VACIA);
 }
 
 bool Celda::esta_marcada() {
@@ -57,7 +51,7 @@ void Celda::poner_mina() {
 }
 
 void Celda::poner_numero(int n) {
-	if (n != 0) estado = NUMERO;
+	estado = NUMERO;
 	numero = n;
 }
 
