@@ -39,11 +39,9 @@ int Juego::dame_num_columnas() {
 
 int Juego::dame_num_minas() {
 	int cont = 0;
-	Celda celdaTemp;
 	for (int i = 0; i < MAX_FILS; i++) {
 		for (int j = 0; j < MAX_COLS; j++) {
-			celdaTemp = tablero.dame_celda(i, j);
-			if (celdaTemp.contiene_mina()) {
+			if (tablero.dame_celda(i,j).contiene_mina()){
 				cont++;
 			}
 		}
@@ -52,20 +50,15 @@ int Juego::dame_num_minas() {
 }
 
 bool Juego::contiene_mina(int fila, int columna) {
-	bool mina = false;
-	Celda celdaTemp = tablero.dame_celda(fila, columna);
-	if (celdaTemp.contiene_mina()) mina = true;
-	return mina;
+	return tablero.dame_celda(fila, columna).contiene_mina();
 }
 
 bool Juego::esta_completo() {
 	bool completo = false;
-	Celda celdaTemp;
 	int i = 0, j = 0;
 	while (completo and i < MAX_FILS) {
 		while (completo and j < MAX_COLS) {
-			celdaTemp = tablero.dame_celda(i, j);
-			if (celdaTemp.contiene_mina() and !celdaTemp.esta_descubierta()) completo = true;
+			if (tablero.dame_celda(i, j).contiene_mina() and !tablero.dame_celda(i, j).esta_descubierta()) completo = true;
 			else {
 				i++;
 				j++;
@@ -77,12 +70,10 @@ bool Juego::esta_completo() {
 
 bool Juego::mina_explotada() {
 	bool explotada = false;
-	Celda celdaTemp;
 	int i = 0, j = 0;
 	while (!explotada and i < MAX_FILS) {
 		while (!explotada and j < MAX_COLS) {
-			celdaTemp = tablero.dame_celda(i, j);
-			if (celdaTemp.contiene_mina() and celdaTemp.esta_descubierta()) explotada = true;
+			if (tablero.dame_celda(i, j).contiene_mina() and tablero.dame_celda(i, j).esta_descubierta()) explotada = true;
 			else {
 				i++;
 				j++;
@@ -93,24 +84,15 @@ bool Juego::mina_explotada() {
 }
 
 bool Juego::esta_descubierta(int fila, int columna) {
-	bool descubierta = false;
-	Celda celdaTemp = tablero.dame_celda(fila, columna);
-	if (celdaTemp.esta_descubierta()) descubierta = true;
-	return descubierta;
+	return tablero.dame_celda(fila, columna).esta_descubierta();
 }
 
 bool Juego::esta_marcada(int fila, int columna) {
-	bool marcada = false;
-	Celda celdaTemp = tablero.dame_celda(fila, columna);
-	if (celdaTemp.esta_marcada()) marcada = true;
-	return marcada;
+	return tablero.dame_celda(fila, columna).esta_marcada();
 }
 
 bool Juego::esta_vacia(int fila, int columna) {
-	bool vacia = false;
-	Celda celdaTemp = tablero.dame_celda(fila, columna);
-	if (celdaTemp.esta_vacia()) vacia = true;
-	return vacia;
+	return tablero.dame_celda(fila, columna).esta_vacia();	
 }
 
 bool Juego::contiene_numero(int fila, int columna) {
@@ -118,8 +100,7 @@ bool Juego::contiene_numero(int fila, int columna) {
 }
 
 int Juego::dame_numero(int fila, int columna) {
-	Celda celdaTemp = tablero.dame_celda(fila, columna);
-	return celdaTemp.dame_numero();
+	return tablero.dame_celda(fila, columna).dame_numero();
 }
 
 void Juego::poner_mina(int fila, int columna) {
@@ -190,4 +171,3 @@ void Juego::juega(int fila, int columna, ListaPosiciones lista_pos) {
 		}
 	}
 }
-
