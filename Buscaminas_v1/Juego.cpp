@@ -135,8 +135,10 @@ void Juego::poner_mina(int fila, int columna) {
 					if (tablero.es_valida(fila + i, columna + j) and !(i == 0 and j == 0)) {
 						//Sumar +1 a las vecinas
 						Celda celdaVecina = tablero.dame_celda(fila + i, columna + j); //Sacamos celda del tablero
-						celdaVecina.poner_numero(celdaVecina.dame_numero() + 1);
-						tablero.poner_celda(fila + i, columna + j, celdaVecina); //guardamos la celda en el tablero
+						if (!celdaVecina.contiene_mina()) { //si contiene mina no se le suma 1
+							celdaVecina.poner_numero(celdaVecina.dame_numero() + 1); //Sumamos 1 al numero de la celda 
+							tablero.poner_celda(fila + i, columna + j, celdaVecina); // Guardamos la celda en el tablero
+						}
 					}
 				}
 			}

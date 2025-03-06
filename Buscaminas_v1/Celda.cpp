@@ -27,7 +27,7 @@ bool Celda::contiene_mina() {
 }
 
 bool Celda::contiene_numero() {
-	return (numero == NUMERO);
+	return (estado == NUMERO);
 }
 
 bool Celda::esta_vacia() {
