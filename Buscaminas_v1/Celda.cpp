@@ -1,7 +1,7 @@
 #include "Celda.h"
 
 Celda::Celda() {
-	descubierta = true; // Default = false
+	descubierta = false; // Default = false
 	marcada = false;
 	estado = VACIA;
 	numero = 0;

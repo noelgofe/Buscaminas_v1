@@ -106,7 +106,7 @@ int Juego::dame_numero(int fila, int columna) {
 void Juego::poner_mina(int fila, int columna) {
 	if (tablero.es_valida(fila, columna)) {
 		Celda celdaTemp = tablero.dame_celda(fila, columna); //referencia de la que se pone mina
-		if (!celdaTemp.contiene_mina()) { // añadir !celdaTemp.esta_descubierta()
+		if (!celdaTemp.esta_descubierta() and !celdaTemp.contiene_mina()) {
 			celdaTemp.poner_mina();
 			tablero.poner_celda(fila, columna, celdaTemp);
 			
@@ -151,6 +151,7 @@ void Juego::juega(int fila, int columna, ListaPosiciones lista_pos) {
 		Celda celdaDescubrir = tablero.dame_celda(fila, columna);
 		if (!celdaDescubrir.esta_descubierta() and !celdaDescubrir.esta_marcada()) {
 			celdaDescubrir.descubrir_celda();
+			tablero.poner_celda(fila, columna, celdaDescubrir);
 
 			if (lista_pos.longitud() < MAX_LISTA) {
 				lista_pos.insertar_final(fila, columna);

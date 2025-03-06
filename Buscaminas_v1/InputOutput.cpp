@@ -84,16 +84,16 @@ void mostrar_cabecera() {
     cout << "----------" << endl;
 }
 
-void pedir_pos(int fila, int columna) {
+void pedir_pos(int& fila, int& columna) {
     do {
         cout << "Introduce una fila: ";
         cin >> fila;
-    } while (fila < -3 and fila > MAX_FILS);
-
+    } while (fila < -3 or fila > MAX_FILS);
+    
     do {
         cout << "Introduce una columna: ";
         cin >> columna;
-    } while (columna < -3 and columna > MAX_COLS);
+    } while (columna < -3 or columna > MAX_COLS);
 
     // TODO: hay que hacer para -1,-2 y -3
 }
