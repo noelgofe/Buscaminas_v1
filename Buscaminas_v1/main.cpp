@@ -1,5 +1,6 @@
 #include "InputOutput.h"
 #include <iostream>
+#include <Windows.h>
 
 using namespace std;
 
@@ -10,7 +11,6 @@ int main() {
 	
 	if (carga_juego(juego)) {
 		mostrar_juego_consola(juego);
-
 		while (!juego.esta_completo() and !juego.mina_explotada()) {
 			pedir_pos(fila, columna);
 			if(fila >= 0 and columna >= 0 ){
@@ -22,6 +22,7 @@ int main() {
 				}
 				else {
 					juego.juega(fila, columna, lista_pos);
+					system("CLS");
 					mostrar_juego_consola(juego);
 				}
 			}

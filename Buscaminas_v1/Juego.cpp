@@ -54,14 +54,11 @@ bool Juego::contiene_mina(int fila, int columna) {
 }
 
 bool Juego::esta_completo() {
-	bool completo = false;
-	int i = 0, j = 0;
-	while (completo and i < MAX_FILS) {
-		while (completo and j < MAX_COLS) {
-			if (tablero.dame_celda(i, j).contiene_mina() and !tablero.dame_celda(i, j).esta_descubierta()) completo = true;
-			else {
-				i++;
-				j++;
+	bool completo = true;
+	for (int i = 0; i < tablero.num_filas(); i++) {
+		for (int j = 0; j < tablero.num_columnas(); j++) {
+			if (!tablero.dame_celda(i, j).contiene_mina() && !tablero.dame_celda(i, j).esta_descubierta()) {
+				completo = false;
 			}
 		}
 	}
