@@ -51,8 +51,10 @@ void Celda::poner_mina() {
 }
 
 void Celda::poner_numero(int n) {
-	estado = NUMERO;
 	numero = n;
+	estado = NUMERO;
+	//if (n == 0) estado == VACIA;
+	//else estado == NUMERO;
 }
 
 void Celda::marcar_celda() {
