@@ -1,6 +1,10 @@
 #include "ListaPosiciones.h"
 
 ListaPosiciones::ListaPosiciones() {
+	for (int i = 0; i < MAX_LISTA; i++) {
+		lista[i].posx = -1;
+		lista[i].posy = -1;
+	}
 	cont = 0;
 }
 

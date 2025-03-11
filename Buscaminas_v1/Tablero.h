@@ -17,5 +17,5 @@ public:
 	int num_columnas();
 	bool es_valida(int fila, int columna);
 	Celda dame_celda(int fila, int columna);
-	void poner_celda(int fila, int columna, Celda celda);
+	void poner_celda(int fila, int columna, const Celda& celda);
 };

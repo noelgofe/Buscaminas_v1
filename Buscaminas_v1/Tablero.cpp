@@ -41,6 +41,6 @@ Celda Tablero::dame_celda(int fila, int columna) {
 	return celdas[fila][columna];
 }
 
-void Tablero::poner_celda(int fila, int columna, Celda celda) {
+void Tablero::poner_celda(int fila, int columna, const Celda& celda) {
 	celdas[fila][columna] = celda;
 }

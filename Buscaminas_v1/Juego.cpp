@@ -41,7 +41,7 @@ int Juego::dame_num_minas() {
 	int cont = 0;
 	for (int i = 0; i < MAX_FILS; i++) {
 		for (int j = 0; j < MAX_COLS; j++) {
-			if (tablero.dame_celda(i,j).contiene_mina()){
+			if (tablero.dame_celda(i, j).contiene_mina()) {
 				cont++;
 			}
 		}
@@ -89,7 +89,7 @@ bool Juego::esta_marcada(int fila, int columna) {
 }
 
 bool Juego::esta_vacia(int fila, int columna) {
-	return tablero.dame_celda(fila, columna).esta_vacia();	
+	return tablero.dame_celda(fila, columna).esta_vacia();
 }
 
 bool Juego::contiene_numero(int fila, int columna) {
@@ -106,7 +106,7 @@ void Juego::poner_mina(int fila, int columna) {
 		if (!celdaTemp.esta_descubierta() and !celdaTemp.contiene_mina()) {
 			celdaTemp.poner_mina();
 			tablero.poner_celda(fila, columna, celdaTemp);
-			
+
 			//Es el unico caso en el que se pone numero
 			for (int i = -1; i <= 1; ++i) {
 				for (int j = -1; j <= 1; ++j) {
@@ -131,19 +131,21 @@ void Juego::marcar_desmarcar(int fila, int columna) {
 			if (celdaTemp.esta_marcada()) celdaTemp.desmarcar_celda();
 			else celdaTemp.marcar_celda();
 		}
+		tablero.poner_celda(fila, columna, celdaTemp);
 	}
 }
 
 void Juego::ocultar(int fila, int columna) {
+	Celda celdaTemp = tablero.dame_celda(fila, columna);
 	if (tablero.es_valida(fila, columna)) {
-		Celda celdaTemp = tablero.dame_celda(fila, columna);
 		if (celdaTemp.esta_descubierta()) {
-			celdaTemp.descubrir_celda();
+			celdaTemp.ocultar_celda();
+			tablero.poner_celda(fila, columna, celdaTemp);
 		}
 	}
 }
 
-void Juego::juega(int fila, int columna, ListaPosiciones lista_pos) {
+void Juego::juega(int fila, int columna, ListaPosiciones& lista_pos) {
 	if (tablero.es_valida(fila, columna)) {
 		Celda celdaDescubrir = tablero.dame_celda(fila, columna);
 		if (!celdaDescubrir.esta_descubierta() and !celdaDescubrir.esta_marcada()) {
@@ -162,6 +164,11 @@ void Juego::juega(int fila, int columna, ListaPosiciones lista_pos) {
 						if (tablero.es_valida(nuevaFila, nuevaColumna) && !(i == 0 && j == 0)) {
 							Celda celdaVecina = tablero.dame_celda(nuevaFila, nuevaColumna);
 							celdaVecina.descubrir_celda();
+							tablero.poner_celda(nuevaFila, nuevaColumna, celdaVecina);
+
+							if (lista_pos.longitud() < MAX_LISTA) {
+								lista_pos.insertar_final(nuevaFila, nuevaColumna);
+							}
 						}
 					}
 				}

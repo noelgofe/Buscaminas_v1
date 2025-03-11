@@ -89,13 +89,11 @@ void pedir_pos(int& fila, int& columna) {
         cout << "Introduce una fila: ";
         cin >> fila;
     } while (fila < -3 or fila > MAX_FILS);
-    
+
     do {
         cout << "Introduce una columna: ";
         cin >> columna;
     } while (columna < -3 or columna > MAX_COLS);
-
-    // TODO: hay que hacer para -1,-2 y -3
 }
 
 void mostrar_resultado(Juego& juego) {
@@ -143,7 +141,7 @@ bool carga_juego(Juego& juego) {
     bool carga;
     string nombreArchivo;
     cout << "Ingrese el nombre del fichero (con terminacion .txt): ";
-    nombreArchivo = "test0.txt"; // cin >> nombreArchivo;
+    cin >> nombreArchivo;
     cout << endl;
 
     ifstream archivo;

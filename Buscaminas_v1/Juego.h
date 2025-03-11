@@ -29,5 +29,5 @@ public:
 	void poner_mina(int fila, int columna);
 	void marcar_desmarcar(int fila, int columna);
 	void ocultar(int fila, int columna);
-	void juega(int fila, int columna, ListaPosiciones lista_pos);
+	void juega(int fila, int columna, ListaPosiciones& lista_pos);
 };
