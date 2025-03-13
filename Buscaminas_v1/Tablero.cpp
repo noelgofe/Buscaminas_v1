@@ -25,19 +25,19 @@ void Tablero::destruye() {
 	columnas = 0;
 }
 
-int Tablero::num_filas() {
+int Tablero::num_filas() const{
 	return filas;
 }
 
-int Tablero::num_columnas() {
+int Tablero::num_columnas() const{
 	return columnas;
 }
 
-bool Tablero::es_valida(int fila, int columna) {
+bool Tablero::es_valida(int fila, int columna) const {
 	return (fila >= 0 and fila <= MAX_FILS and columna >= 0 and columna <= MAX_COLS);
 }
 
-Celda Tablero::dame_celda(int fila, int columna) {
+Celda Tablero::dame_celda(int fila, int columna) const {
 	return celdas[fila][columna];
 }
 

@@ -17,10 +17,10 @@ int main() {
 			pedir_pos(fila, columna);
 			if (fila >= 0 and columna >= 0) {
 				if (juego.esta_descubierta(fila, columna)) {
-					cout << "La celda ya está descubierta" << endl;
+					cout << "La celda ya esta descubierta" << endl;
 				}
 				else if (juego.esta_marcada(fila, columna)) {
-					cout << "La celda está marcada" << endl;
+					cout << "La celda esta marcada" << endl;
 				}
 				else {
 					juego.juega(fila, columna, lista_pos);

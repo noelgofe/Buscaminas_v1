@@ -13,5 +13,5 @@ istream& operator>> (istream& in, Juego& juego);
 void mostrar_cabecera();
 void pedir_pos(int& fila, int& columna);
 void mostrar_resultado(Juego& juego);
-void mostrar_juego_consola(Juego& juego); // TODO: esto debería ser const Juego& juego
+void mostrar_juego_consola(const Juego& juego); // TODO: esto debería ser const Juego& juego
 bool carga_juego(Juego& juego);

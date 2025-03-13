@@ -11,12 +11,12 @@ private:
 public:
 	Celda();
 	void destruye();
-	int dame_numero();
-	bool esta_descubierta();
-	bool contiene_mina();
-	bool contiene_numero();
-	bool esta_vacia();
-	bool esta_marcada();
+	int dame_numero() const;
+	bool esta_descubierta() const;
+	bool contiene_mina() const;
+	bool contiene_numero() const;
+	bool esta_vacia() const;
+	bool esta_marcada() const;
 	void descubrir_celda();
 	void ocultar_celda();
 	void poner_mina();

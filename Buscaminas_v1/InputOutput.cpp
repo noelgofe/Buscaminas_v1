@@ -6,8 +6,8 @@ using namespace std;
 
 const char CHAR_MINA = '*';  // Mina
 
-void mostrar_separador(Juego& juego);
-void mostrar_celda(Juego& juego, int fila, int columna);
+void mostrar_separador(const Juego& juego);
+void mostrar_celda(const Juego& juego, int fila, int columna);
 void color_numero(int numero);
 
 void color_numero(int numero) {
@@ -23,7 +23,7 @@ void color_numero(int numero) {
     }
 }
 
-void mostrar_separador(Juego& juego) { //Funcion de ayuda para el mostrar_juego_consola
+void mostrar_separador(const Juego& juego) { //Funcion de ayuda para el mostrar_juego_consola
     cout << "\t -+";
     for (int col = 0; col < juego.dame_num_columnas(); ++col) {
         cout << setw(N_HUECOS + 1) << setfill('-') << '+' << setfill(' ');
@@ -31,7 +31,7 @@ void mostrar_separador(Juego& juego) { //Funcion de ayuda para el mostrar_juego_
     cout << endl;
 }
 
-void mostrar_celda(Juego& juego, int fila, int columna) { //Funcion de ayuda para el mostrar_juego_consola
+void mostrar_celda(const Juego& juego, int fila, int columna) { //Funcion de ayuda para el mostrar_juego_consola
     if (!juego.esta_descubierta(fila, columna) && !juego.esta_marcada(fila, columna)) {
         cout << BG_GRAY << GRAY << N_HUECOS << setfill(' ') << ' ' << RESET;
     }
@@ -105,7 +105,7 @@ void mostrar_resultado(Juego& juego) {
     }
 }
 
-void mostrar_juego_consola(Juego& juego) { // TODO: esto debería ser const Juego& juego
+void mostrar_juego_consola(const Juego& juego) { // TODO: esto debería ser const Juego& juego
 
     // mostrar el número de jugadas del juego
     cout << "Llevas " << juego.dame_num_jugadas() << " jugadas" << endl;

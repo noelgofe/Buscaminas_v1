@@ -20,14 +20,14 @@ void ListaPosiciones::insertar_final(int x, int y) {
 	}
 }
 
-int ListaPosiciones::longitud() {
+int ListaPosiciones::longitud() const {
 	return cont;
 }
 
-int ListaPosiciones::dame_posX(int i) {
+int ListaPosiciones::dame_posX(int i) const {
 	return lista[i].posx;
 }
 
-int ListaPosiciones::dame_posY(int i) {
+int ListaPosiciones::dame_posY(int i) const {
 	return lista[i].posy;
 }

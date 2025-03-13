@@ -11,5 +11,5 @@ public:
 	ListaUndo();
 	void destruye();
 	void insertar_final(const ListaPosiciones& lista_pos);
-	ListaPosiciones ultimo_elemento();
+	ListaPosiciones ultimo_elemento() const;
 };

@@ -27,7 +27,7 @@ void ListaUndo::insertar_final(const ListaPosiciones& lista_pos) {
 	}
 }
 
-ListaPosiciones ListaUndo::ultimo_elemento() {
-	cont--; //se muestrasolo una jugada sino
+ListaPosiciones ListaUndo::ultimo_elemento() const {
+	cont--;									//solo se podria hacer un paso hacia atras sino
 	return lista[cont];
 }

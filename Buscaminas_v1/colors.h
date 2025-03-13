@@ -1,5 +1,5 @@
 #pragma once
-// Otra idea de colores en C++:
+//Otra idea de colores en C++:
 // 
 // https://gist.github.com/Alfonzzoj/db207b89d56f24d9d0b17ff93e091be8
 // 

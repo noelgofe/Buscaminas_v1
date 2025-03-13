@@ -1,6 +1,6 @@
 #pragma once
 
-const int MAX_LISTA = 50;
+const int MAX_LISTA = 10;
 
 class ListaPosiciones {
 private:
@@ -14,8 +14,8 @@ public:
 	ListaPosiciones();
 	void destruye();
 	void insertar_final(int x, int y);
-	int longitud();
-	int dame_posX(int i);
-	int dame_posY(int i);
+	int longitud() const;
+	int dame_posX(int i) const;
+	int dame_posY(int i) const;
 };
 

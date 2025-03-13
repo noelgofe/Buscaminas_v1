@@ -14,27 +14,27 @@ void Celda::destruye() {
 	numero = 0;
 }
 
-int Celda::dame_numero() {
+int Celda::dame_numero() const {
 	return numero;
 }
 
-bool Celda::esta_descubierta() {
+bool Celda::esta_descubierta() const {
 	return descubierta;
 }
 
-bool Celda::contiene_mina() {
+bool Celda::contiene_mina() const {
 	return (estado == MINA);
 }
 
-bool Celda::contiene_numero() {
+bool Celda::contiene_numero() const {
 	return (estado == NUMERO);
 }
 
-bool Celda::esta_vacia() {
+bool Celda::esta_vacia() const {
 	return (estado == VACIA);
 }
 
-bool Celda::esta_marcada() {
+bool Celda::esta_marcada() const {
 	return marcada;
 }
 
